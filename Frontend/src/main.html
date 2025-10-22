@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Credit</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/style.css">
+    <link rel="stylesheet" href="/Frontend/assets/icon/themify-icons-font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div class="main">
+        <!-- Header -->
+        <div id="header">
+            <div class="name-app">Carbon Trader</div>
+            <ul id="nav">
+                <li>
+                    <a href="#homepage" >Trang chủ</a>
+                </li>
+                <li>
+                    <a href="#introduce" >Giới thiệu</a>
+                </li>
+                <li>
+                    <a href="#services" >Dịch vụ</a>
+                </li>
+            </ul>
+            
+            <div id="btn">
+                <a href="#">
+                    <button id="signup-btn">Đăng kí</button>
+                </a>
+            </div>
+        </div>
+        <!-- Header -->
+
+        <div id="homepage">
+            <div id="text-homepage">
+                <h1 id="text-heading">Nền tảng tín chỉ carbon</h1>
+                <p id="text-content">Giao dịch tín chỉ carbon dễ dàng</p>
+                <div class="btn">
+                    <a href="" id="btn-homepage">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <!-- Introduce -->
+            <div id="introduce">
+                <div class ="text-introduce">
+                    <p class="text-hightlight">Nên tảng tín chỉ carbon</p>
+                    <h2 class="text-heading">Giải pháp cho xe điện</h2>
+                    <p id="text-content-introduce">Carbon Trader cung cấp nền tảng giao dịch tín chỉ carbon cho chủ sở hữu xe điện. Chúng tôi kết nối người mua tín chỉ carbon với các chủ sở hữu xe điện thông qua các chức năng như đồng bộ dữ liệu xe, theo dõi giảm thiểu CO2, ví carbon, và quản lý giao dịch. Hãy tham gia cùng chúng tôi để góp phần bảo vệ môi trường và tối ưu hóa lợi ích từ xe điện của bạn.</p>
+                </div>
+                <img src="/Frontend/assets/images/image-introduce.jpg" alt="" id="image-introduce">
+            </div>
+
+            <!-- Services -->
+            <div class="service-content">
+                 <div id="services">
+                     <div class ="text-introduce">
+                         <p class="text-hightlight">Thị trường tín chỉ carbon</p>
+                         <h2 class="text-heading">Giúp chủ xe điện tối ưu hóa lợi ích</h2>
+                     </div>
+
+                     <div class="list-service">
+                        <div class="list-item">
+                            <img src="/Frontend/assets/images/Service/ser1.jpeg" alt="" class="img-service">
+                            <div class="service-content">
+                                <h2 class="service-heading">Theo dõi giảm phát thải CO2
+                                    <i class="ti-angle-right icon-service"></i>
+                                </h2>
+                                <p class="service-text">Giúp chủ sỡ hữu xe điện theo dõi mức giảm phát thải CO2</p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <img src="/Frontend/assets/images/Service/ser2.jpeg" alt="" class="img-service">
+                            <div class="service-content">
+                                <h2 class="service-heading">Ví tín chỉ Carbon
+                                    <i class="ti-angle-right icon-service"></i>
+                                </h2>
+                                <p class="service-text">Quản lý và lưu trữ tín chỉ Carbon một cách dễ dàng</p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <img src="/Frontend/assets/images/Service/ser3.jpeg" alt="" class="img-service">
+                            <div class="service-content">
+                                <h2 class="service-heading">Giao dịch tín chỉ Carbon
+                                    <i class="ti-angle-right icon-service"></i>
+                                </h2>
+                                <p class="service-text">Nền tảng giao dịch tín chỉ Carbon dễ dàng và hiệu quả</p>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>Web design by my team</p>
+        </div>
+    </div>
+    
+    <div id="overlay"></div>
+
+    <div id="auth-modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+
+            <!-- Form sign up -->
+            <form id="signup-form" class="active">
+                <h2>Đăng ký tài khoản</h2>
+
+                <label for="signup-username">Tên đăng kí:</label>
+                <input type="text" id="signup-username" placeholder="Nhập username">
+
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" placeholder="Nhập email">
+
+                <label for="signup-password">Mật Khẩu:</label>
+                <input type="password" id="signup-password" placeholder="Nhập mật khẩu">
+
+                <button type="submit">Đăng ký</button>
+
+                <p class="switch-form">Bạn đã có tài khoản? 
+                    <a href="#" id="to-login">Đăng nhập</a>
+                </p>
+            </form>
+
+            <!-- Form sign in -->
+            <form id="login-form">
+                <h2>Đăng nhập</h2>
+
+                <label for="login-username">Tên đăng nhập:</label>
+                <input type="text" id="login-username" placeholder="Nhập username">
+
+                <label for="login-password">Mật khẩu:</label>
+                <input type="password" id="login-password" placeholder="Nhập mật khẩu">
+
+                <a href="#" id="to-forgot" class="forgot-link">Quên mật khẩu?</a>
+
+                <button type="submit">Đăng nhập</button>
+
+                <p class="switch-form">Chưa có tài khoản? 
+                    <a href="#" id="to-signup">Đăng ký</a>
+                </p>
+            </form>
+
+            <!-- Form forgot password -->
+             <form id="forgot-form">
+                <h2>Quên mật khẩu</h2>
+
+                <label for="forgot-username">Tên đăng nhập:</label>
+                <input type="text" id="forgot-username" placeholder="Nhập username">
+
+                <label for="forgot-old">Mật khẩu hiện tại:</label>
+                <input type="password" id="forgot-old" placeholder="Nhập mật khẩu hiện tại">
+
+                <label for="forgot-new">Mật khẩu mới:</label>
+                <input type="password" id="forgot-new" placeholder="Nhập mật khẩu mới">
+
+                <button type="submit">Đổi mật khẩu</button>
+
+                <p class="switch-form">
+                    <a href="#" id="back-login">Quay lại đăng nhập</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/Frontend/src/Pages/Signup.js"></script>
+</body>
+</html>

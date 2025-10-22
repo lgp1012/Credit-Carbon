@@ -1,0 +1,427 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+}
+
+html {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+
+}
+
+:target {
+    scroll-margin-top: 70px; /* bằng hoặc lớn hơn chiều cao header */
+}
+
+/* Header */
+#header {
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#header .name-app{
+    color: black;
+    padding: 0 50px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#header #nav{
+    display: flex;
+    margin-left: auto;
+}
+
+#header ul li{
+    padding: 0 20px;
+    list-style-type: none;
+    line-height: 70px;
+}
+
+#header ul li:hover{
+    background-color: rgb(128, 128, 128);
+}
+
+#header ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: block;
+}
+
+#header ul a:hover {
+    color: white;
+}
+
+#header #btn {
+    margin-left: 12px;
+    margin-right: 50px;
+}
+
+#header #signup-btn {
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: aquamarine;
+}
+
+#header #signup-btn:hover{
+    background-color: rgb(33, 165, 121);
+}
+/* Header */
+
+/* Homepage */
+#homepage {
+    position: relative;
+    margin-top: 70px;
+    padding-top: 50%;
+    background: url('/Frontend/assets/images/image_homepage.jpg') top center / cover no-repeat;
+}
+
+#homepage #text-homepage {
+    position: absolute;
+    bottom: 57%;
+    left: 5%;
+    color: white;
+    font-size: 35px;
+    font-family:'Arial Narrow Bold', sans-serif}
+
+#homepage #text-homepage #text-heading {
+    margin-bottom: 25px;
+}
+
+#homepage #text-homepage #text-content {
+    font-style: italic;
+    font-size: 30px;
+}
+
+#homepage #text-homepage .btn {
+    margin-top: 25px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(55, 221, 165);
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#homepage .btn #btn-homepage {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+/* Homepage */
+
+/* Content */
+
+#content #introduce,
+#content #services{
+    padding: 80px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#content #introduce {
+    display: flex;
+    gap:20px;
+    justify-content: space-between;
+}
+
+#content #introduce .text-introduce{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content .text-introduce .text-hightlight {
+    color: rgb(0, 180, 0);
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#content .text-introduce .text-heading {
+    font-size:30px;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+
+#content .text-introduce #text-content-introduce {
+    word-spacing: 4px;
+    font-size: 17px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#content #image-introduce {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Service */
+#content .service-content {
+    background-color: rgb(236, 236, 236);
+}
+
+#content .list-service {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* làm các khung cao bằng nhau */
+    gap: 30px;  
+}
+
+#content .list-item .service-content {
+    background-color: white;
+    padding: 20px 0;
+}
+
+#content .list-service .list-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#content .list-service .list-item:hover {
+    cursor: pointer;
+}
+
+#content .list-item .service-heading,
+#content .list-item .service-text{
+    padding: 0 15px;
+}
+
+#content .list-item .service-heading {
+    margin-bottom: 10px;
+}
+
+.list-service .list-item .img-service {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+#content .list-service .list-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#content .list-service .list-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); 
+    z-index: 2; 
+}
+
+#content .list-service .list-item .img-service {
+    transition: transform 0.5s ease;
+}
+
+#content .list-service .list-item:hover .img-service {
+    transform: scale(1.08);
+}
+
+#content .list-service .list-item:hover .service-heading,
+#content .list-service .list-item:hover .icon-service {
+    color: rgb(0, 180, 0);
+    transition: color 0.3s ease;
+}
+
+/* Footer */
+#footer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 100px;
+    background-color: rgb(10, 29, 23);
+}
+
+#footer p {
+    color: rgb(189, 189, 189);
+    text-decoration: underline;
+}
+
+/* Form Sign Up / Sign In*/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: none;
+}
+
+#auth-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    z-index: 11;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translate(-50%, -48%);}
+    to {opacity: 1; transform: translate(-50%, -50%);}
+}
+
+/* Nút đóng */
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-content h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    font-size: 12px;
+}
+
+/* Form chung */
+#auth-modal form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#auth-modal form.active {
+    display: flex;
+}
+
+#auth-modal input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#auth-modal button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(0, 180, 0);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#auth-modal button:hover {
+    background-color: rgb(1, 150, 1);
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.switch-form a {
+    color: rgb(0, 180, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+input.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: -5px;
+}
+
+/* Forgot password */
+.forgot-link {
+  display: block;
+  margin: 8px 0 2px 0;
+  font-size: 14px;
+  text-align: right;
+  color: rgb(0, 180, 0);
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+#forgot-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  z-index: 12; /* cao hơn form login */
+  animation: fadeIn 0.3s ease;
+}
+
+
+#forgot-form input {
+    width: 100%;
+}
+
+#forgot-form label {
+     display: block;
+    margin-top: 10px;
+  font-weight: 500;
+}
+
+#login-form.blur {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#forgot-form button {
+  background-color: rgb(0, 180, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto 10px auto; /* tự căn giữa */
+}
+
+#forgot-form button:hover {
+  background-color: rgb(1, 140, 1);
+}
+

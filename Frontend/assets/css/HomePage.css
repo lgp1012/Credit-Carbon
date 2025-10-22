@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.main-box {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+    align-content: start;
+}
+
+.header {
+    height: 70px;
+    background-color: white;
+    width: 100%;
+    align-self: auto;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.header .name-app {
+    color: black;
+     padding: 0 50px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.header #name-avt {
+    display: flex;
+    margin-left: auto;
+    margin-right: 40px;
+    height: 50%;
+    align-items: center;
+    width: auto;
+    background-color: rgb(56, 114, 95);
+    border-radius: 20px;
+}
+
+.header #name-avt:hover {
+    background-color: rgb(31, 65, 54);
+}
+
+.header #name-avt a {
+    padding: 20px 25px;
+    text-decoration: none;
+    color: white;
+}
+
+.header #name-avt i {
+    font-size: 12px;
+}
+
+.sidebar {
+    margin-top: 70px;
+    height: calc(100% - 70px);
+    background-color: rgb(48, 156, 102);
+    width: 10%;
+    align-self: auto;
+}
+
+.content {
+    margin-top: 70px;
+    height: calc(100% - 70px);
+    background-color: rgb(219, 219, 219);
+    width: 90%;
+    align-self: auto;
+}
