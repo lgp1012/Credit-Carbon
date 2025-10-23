@@ -12,7 +12,7 @@
         <div class="header">
             <div class="name-app">Carbon Credit</div>
             <div id="name-avt">
-                <a href="#">Chào, Lưu Gia Phúc
+                <a href="#" onclick="showName()">Chào, <span id="name-signup"></span>
                     <i class="ti-angle-down"></i>
                 </a>
             </div>
@@ -21,29 +21,80 @@
         <div class="sidebar">
             <div class="sidebar-btn">
                 <ul id="btn">
-                    <li>
-                        <a href="" class="button"></a>
+                    <li class="active">
+                        <a href="#" class="button" onclick="showContent(event, 'co2')">Lượng giảm thải CO2
+                             <i class="ti-angle-right"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="" class="button"></a>
+                        <a href="#" class="button" onclick="showContent(event,'market')">Thị trường
+                             <i class="ti-angle-right"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="" class="button"></a>
+                        <a href="#" class="button" onclick="showContent(event,'wallet')">Ví carbon
+                             <i class="ti-angle-right"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="" class="button"></a>
+                        <a href="#" class="button" onclick="showContent(event,'transaction')">Giao dịch
+                             <i class="ti-angle-right"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="" class="button"></a>
+                        <a href="#" class="button" onclick="showContent(event,'verticify')">Kiểm toán
+                            <i class="ti-angle-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="button" onclick="showContent(event,'information')">Thông tin người dùng
+                            <i class="ti-angle-right"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="content">
-        
+            <div class="box-content" id="co2" style="display: block;">
+                <div class="chart-content"></div>
+                <div class="co2-content"></div>
+                <div class="insert-content"></div>
+                <div class="history-content"></div>
+            </div>
+
+            <div class="box-content" id="market" style="display: none;">
+                <div class="trader-content"></div>
+                <div class="order-content"></div>
+            </div>
+
+            <div class="box-content" id="wallet" style="display: none;">
+                <div class="tradr-content"></div>
+                <div class="inrt-content"></div>
+                <div class="hory-content"></div>
+            </div>
+
+            <div class="box-content" id="transaction" style="display: none;">
+                <div class="trr-content"></div>
+                <div class="inrt-content"></div>
+                <div class="histy-content"></div>
+            </div>
+
+            <div class="box-content" id="verticify" style="display: none;">
+                <div class="tader-content"></div>
+                <div class="insrt-content"></div>
+                <div class="hisory-content"></div>
+            </div>
+
+            <div class="box-content" id="information" style="display: none;">
+                <div class="tader-content"></div>
+                <div class="insrt-content"></div>
+                <div class="hisory-content"></div>
+            </div>
         </div>
 
     </div>
+
+    <script src="/Frontend/assets/js/homePage.js"></script>
 </body>
 </html>
