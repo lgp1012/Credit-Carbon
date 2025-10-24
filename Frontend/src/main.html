@@ -26,21 +26,23 @@
             
             <div id="btn">
                 <a href="#">
-                    <button id="signup-btn">Đăng kí</button>
+                    <button id="signin-btn">Đăng nhập</button>
                 </a>
             </div>
         </div>
         <!-- Header -->
 
+        <!-- Slider -->
         <div id="homepage">
             <div id="text-homepage">
                 <h1 id="text-heading">Nền tảng tín chỉ carbon</h1>
                 <p id="text-content">Giao dịch tín chỉ carbon dễ dàng</p>
                 <div class="btn">
-                    <a href="" id="btn-homepage">View More</a>
+                    <a href="#" id="signup-btn">Đăng kí</a>
                 </div>
             </div>
         </div>
+        <!-- Slider -->
 
         <div id="content">
             <!-- Introduce -->
@@ -129,8 +131,8 @@
             <form id="login-form">
                 <h2>Đăng nhập</h2>
 
-                <label for="login-username">Tên đăng nhập:</label>
-                <input type="text" id="login-username" placeholder="Nhập username">
+                <label for="login-email">Email đăng nhập:</label>
+                <input type="text" id="login-email" placeholder="Nhập email">
 
                 <label for="login-password">Mật khẩu:</label>
                 <input type="password" id="login-password" placeholder="Nhập mật khẩu">
@@ -148,8 +150,8 @@
              <form id="forgot-form">
                 <h2>Quên mật khẩu</h2>
 
-                <label for="forgot-username">Tên đăng nhập:</label>
-                <input type="text" id="forgot-username" placeholder="Nhập username">
+                <label for="forgot-email">Email đăng nhập:</label>
+                <input type="text" id="forgot-email" placeholder="Nhập email">
 
                 <label for="forgot-old">Mật khẩu hiện tại:</label>
                 <input type="password" id="forgot-old" placeholder="Nhập mật khẩu hiện tại">
@@ -166,6 +168,6 @@
         </div>
     </div>
 
-    <script src="/Frontend/assets/js/signUp_signIn.js"></script>
+    <script type="module" src="/Frontend/assets/js/auth.js"></script>
 </body>
 </html>
