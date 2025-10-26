@@ -10,43 +10,48 @@
 <body>
     <div class="main-box">
         <div class="header">
-            <div class="name-app">Carbon Credit</div>
+            <div class="name-app">Carbon Trader</div>
             <div id="name-avt">
-                <a href="#" onclick="showName()">Chào, <span id="name-signup"></span>
+                <div id="name-btn" onclick="toggleLogoutForm()">Chào, <span id="name-signup"></span>
                     <i class="ti-angle-down"></i>
-                </a>
+                </div>
+                <div class="logout-form">
+                    <button id="logout-btn">Đăng xuất  
+                        <i class="ti-close"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <div class="sidebar">
             <div class="sidebar-btn">
                 <ul id="btn">
-                    <li class="active">
+                    <li class="active" onclick="showContent(event, 'co2')">
                         <a href="#" class="button" onclick="showContent(event, 'co2')">Lượng giảm thải CO2
                              <i class="ti-angle-right"></i>
                         </a>
                     </li>
-                    <li>
+                    <li onclick="showContent(event,'market')">
                         <a href="#" class="button" onclick="showContent(event,'market')">Thị trường
                              <i class="ti-angle-right"></i>
                         </a>
                     </li>
-                    <li>
+                    <li onclick="showContent(event,'wallet')">
                         <a href="#" class="button" onclick="showContent(event,'wallet')">Ví carbon
                              <i class="ti-angle-right"></i>
                         </a>
                     </li>
-                    <li>
+                    <li onclick="showContent(event,'transaction')">
                         <a href="#" class="button" onclick="showContent(event,'transaction')">Giao dịch
                              <i class="ti-angle-right"></i>
                         </a>
                     </li>
-                    <li>
+                    <li onclick="showContent(event,'verticify')">
                         <a href="#" class="button" onclick="showContent(event,'verticify')">Kiểm toán
                             <i class="ti-angle-right"></i>
                         </a>
                     </li>
-                    <li>
+                    <li onclick="showContent(event,'information')">
                         <a href="#" class="button" onclick="showContent(event,'information')">Thông tin người dùng
                             <i class="ti-angle-right"></i>
                         </a>

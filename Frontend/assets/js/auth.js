@@ -3,18 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const signupBtn = document.querySelector('#signup-btn');
   const signinBtn = document.querySelector('#signin-btn');
+
   const overlay = document.querySelector('#overlay');
   const modal = document.querySelector('#auth-modal');
   const closeModal = document.querySelector('#close-modal');
 
   const signupForm = document.querySelector('#signup-form');
   const loginForm = document.querySelector('#login-form');
+  const forgotForm = document.querySelector('#forgot-form');
 
   const toLogin = document.querySelector('#to-login');
   const toSignup = document.querySelector('#to-signup');
   const backLoginBtn = document.querySelector('#back-login');
   const toForgot = document.querySelector('#to-forgot');
-  const forgotForm = document.querySelector('#forgot-form');
 
   // Safety: check required elements exist
   if (!overlay || !modal || !signupForm || !loginForm) {
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModal && closeModal.addEventListener('click', closeModalFunc);
   overlay && overlay.addEventListener('click', closeModalFunc);
 
-  // Forgot password toggle (reuse existing ids)
+  // Forgot password toggle
   toForgot && toForgot.addEventListener('click', (e) => {
     e.preventDefault();
     forgotForm.style.display = 'block';
@@ -99,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     msg.innerText = message;
     inputEl.insertAdjacentElement('afterend', msg);
   }
-
 
   // ----------------------------------------REGISTER handler ---------------------------------------------------------
   signupForm && signupForm.addEventListener('submit', async (e) => {
@@ -127,13 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
           password: password.value.trim()
         })
       });
+
       const data = await res.json();
       if (res.ok) {
         alert('Đăng ký thành công!');
+        if (data.user) {
+          try { 
+            localStorage.setItem('user', JSON.stringify(data.user)); 
+          } catch (e) { 
+            console.warn('Không thể lưu user vào localStorage', e); 
+          }
+        }
         signupForm.reset();
         openModal('login'); // chuyển sang form login
       } else {
-        // hiển thị lỗi backend (ví dụ email đã đăng ký)
         alert(data.message || 'Đăng ký thất bại');
       }
     } catch (err) {
@@ -164,17 +171,24 @@ document.addEventListener('DOMContentLoaded', () => {
           password: password.value.trim()
         })
       });
+
       const data = await res.json();
       if (res.ok && data.token) {
         localStorage.setItem('token', data.token);
-        // optional: save user info
-        // localStorage.setItem('user', JSON.stringify(data.user));
+        // save user info returned by backend so homepage can show the name
+        if (data.user) {
+          try { 
+            localStorage.setItem('user', JSON.stringify(data.user)); 
+          } catch (e) { 
+            console.warn('Không thể lưu user vào localStorage', e); 
+          }
+        }
         alert('Đăng nhập thành công!');
         loginForm.reset();
         closeModalFunc();
         // chuyển trang đến dashboard
         console.log('Redirecting to HomePage...');
-        window.location.href = '';
+        window.location.href = './public/HomePage.html';
       } else {
         alert(data.message || 'Đăng nhập thất bại');
       }
@@ -184,6 +198,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-});
+  //-------------------------------------------------- Forgot pass handler---------------------------------------------------------------
+forgotForm&&forgotForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  removeOldErrors(forgotForm);
 
-//-------------------------------------------------- Forgot pass handler---------------------------------------------------------------
+  const emailInput = forgotForm.querySelector('#forgot-email');
+  const oldPasswordInput = forgotForm.querySelector('#forgot-old');
+  const newPasswordInput = forgotForm.querySelector('#forgot-new');
+
+  let isValid = true;
+  if (!emailInput.value.trim()) { showErrorAfter(emailInput, 'Vui lòng nhập email'); isValid = false; }
+  if (!oldPasswordInput.value.trim()) { showErrorAfter(oldPasswordInput, 'Vui lòng nhập mật khẩu hiện tại'); isValid = false; }
+  if (!newPasswordInput.value.trim()) { showErrorAfter(newPasswordInput, 'Vui lòng nhập mật khẩu mới'); isValid = false; }
+  if (!isValid) return;
+
+  try {
+    const res = await fetch('http://localhost:5000/api/auth/forgot-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: emailInput.value.trim(),
+        oldPassword: oldPasswordInput.value.trim(),
+        newPassword: newPasswordInput.value.trim()
+      })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert('Đổi mật khẩu thành công! Hãy đăng nhập lại.');
+      forgotForm.reset();
+      forgotForm.style.display = 'none';
+      loginForm.classList.remove('blur');
+    } else {
+      alert(data.message || 'Không thể đổi mật khẩu');
+    }
+  } catch (err) {
+    console.error('Forgot password error:', err);
+    alert('Lỗi kết nối server!');
+  }
+});
+});

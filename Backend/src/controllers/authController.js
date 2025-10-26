@@ -34,8 +34,41 @@ export const loginUser = async (request, response) => {
     if(!isMatch) {
       return response.status(400).json({message: "Mật khẩu không hợp lệ"});
     }
-    return response.status(201).json({message: "Đăng nhập thành công"});
+    const payload = { id: user._id, email: user.email };
+    const secret = process.env.JWT_SECRET || 'secret';
+    const token = jwt.sign(payload, secret, { expiresIn: '7d' });
+
+    return response.status(200).json({ message: "Đăng nhập thành công", token, user: { id: user._id, name: user.name, email: user.email } });
   } catch (error) {
     return response.status(500).json({message: "Đăng nhập không thành công"});
   }
 }
+
+export const forgotPassword = async (request, response) => {
+  try {
+    const { email, newPassword } = request.body;
+
+    // Kiểm tra email
+    const user = await User.findOne({ email });
+    if (!user) return response.status(404).json({ message: 'Không tìm thấy người dùng với email này' });
+
+    // Cập nhật mật khẩu mới
+    const hashed = await bcrypt.hash(newPassword, 10);
+    user.password = hashed;
+    await user.save();
+
+    return response.status(200).json({ message: 'Đổi mật khẩu thành công' });
+  } catch (error) {
+    console.error(error);
+    return response.status(500).json({ message: 'Không thể đổi mật khẩu' });
+  }
+};
+
+export const logout = async (request, response) => {
+  try {
+    return response.status(200).json({ message: 'Đăng xuất thành công' });
+  } catch (error) {
+    console.error(error);
+    return response.status(500).json({ message: 'Lỗi khi đăng xuất' });
+  }
+};
